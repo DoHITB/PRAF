@@ -20,74 +20,65 @@ You can find a list of valid parameters at http://doscar-sole.netau.net/, and he
 
 Here is a list of parameters and all the things it made:
 
- - k
-			 * e: Encode
-				* d: Decode
+- k: {e: Encode; d: Decode}
 	
-	- m
-				* n | n % 8 = 0 ∀ n ∈ N: Memory
+- m: {n | n % 8 = 0 ∀ n ∈ N: Memory}
 	
-	- i
-				* ∀ n ∈ N: Id
-				* 0: Id
+- i: {∀ n ∈ N: Id; 0: Id}
 					
-	- t: Text
+- t: Text
 	
-	- s: Sorting Pattern
+- s: Sorting Pattern
 	
-	- p: Filling Pattern
+- p: Filling Pattern
 	
-	- v
-				* 1: Save
+- v: {1: Save; !1: Don't Save}
 					
-	- b
-				* 1: Bin data
+- b: {1: Bin data; !1: ASCII data}
 					
-	- o
-				* JSON: Get the output in JSON format
-				* XML: Get the output in XML format
+- o: {JSON: Get the output in JSON format; XML: Get the output in XML format}
 					
 			
-	The "v" parameter is only for "k=e", it will save data on database if "v=1", and won't do it otherwise.
+The "v" parameter is only for "k=e", it will save data on database if "v=1", and won't do it otherwise.
 
-	If you used "v=1", you can later use "i=n"; if not, you can only use "i=0";
+If you used "v=1", you can later use "i=n"; if not, you can only use "i=0";
 	
 	
 	
-	"i" is only for "k=d".
+"i" is only for "k=d".
 	
-	"s" is only for "k=d".
+"s" is only for "k=d".
 	
-	"p" is only for "k=d".
-	
-	
-	
-	If "i=0", "s" and "p" are mandatory; if "i=n", "s" and "p" are not needed.
+"p" is only for "k=d".
 	
 	
 	
-	"k" is mandatory.
-	
-	"t" is mandatory.
-	
-	"m" is optional, 1024 will be used if there is not "m" specified.
-	
-	
-	"b" is optional, null will be used if there is not "b" specified.
-	
-	
-	"o" is optional, raw data format will be used if there is not "o" specified
+If "i=0", "s" and "p" are mandatory; if "i=n", "s" and "p" are not needed.
 	
 	
 	
-	If "k=e" and "b=1", Base64 input is needed
+"k" is mandatory.
+	
+"t" is mandatory.
+
+"m" is optional, 1024 will be used if there is not "m" specified.
 	
 	
-	If "b=1" was used on "k=e", is needed to use "b=1" on "k=d", but no other special thing is needed.
+"b" is optional, null will be used if there is not "b" specified.
+	
+	
+"o" is optional, raw data format will be used if there is not "o" specified
 	
 	
 	
-	So, a example URL can be "http://-------.com/PRAF/PRAF.php?k=e&t=hello&m=8&v=0"
+If "k=e" and "b=1", Base64 input is needed
+	
+	
+If "b=1" was used on "k=e", is needed to use "b=1" on "k=d", but no other special thing is needed.
+	
+	
+	
+So, a example URL can be "http://-------.com/PRAF/PRAF.php?k=e&t=hello&m=8&v=0"
 
 
 =========
