@@ -1,4 +1,4 @@
-# PRAF
+# PRAF 1.7 (Beta)
 Part, Replace And Fulfill Chiper System
 
 ==============================
@@ -9,8 +9,21 @@ HOW TO INSTALL IN LOCAL SERVER
  - Enter to your local database administrator and run sql.txt
  - Copy all the .php files ON THE SAME FOLDER
  - Now it's all ready to run.
- 
- 
+
+=========
+CHANGELOG
+=========
+
+- 08/12/2015, 00:22 | PRAF is born, version 1.0 is implemented
+- 09/12/2015, 10:20 | New isolated DataBase created for PRAF.
+- 12/12/2015, 18:36 | New parameters added
+- 13/12/2015, 11:41 | Bugfix, memory cannot be 0: PRAF Version 1.1
+- 27/12/2015, 12:05 | Improvement of PRAF; now supporting POST petitions (CAUTION: Test still pending): PRAF Version 1.2 (Beta)
+- 27/12/2015, 12:21 | New functionality of PRAF; now supporting bin data: PRAF Version 1.3 (Beta)
+- 27/12/2015, 12:33 | Some validations were moved; now PRAF is slightly faster: PRAF Version 1.4 (Beta)
+- 09/01/2016, 23:09 | Added JSON and  XML output mode, and extra data for the output style: PRAF Version: 1.5 (Beta)
+- 10/01/2016, 19:35 | Created new isolated files for database and database credentials: PRAF Version: 1.6 (Beta)
+- 29/01/2016, 20:25 | "i" parameter now optional, only numeric values greater than 0 allowed; any other value will be treated as "i=0". PRAF Version 1.7 (Beta)
  
 ==========
 PARAMETERS
