@@ -64,11 +64,9 @@ function main(){
 		$save = "false";
 		$bin = "false";
 		
-		if($id === ''){
-			echo("Bad input");
-			return false;
-		}
-		
+		if($id === '' || !is_numeric($id) || $id <= 0){
+			$id = '0';
+
 		if($id === '0')
 			$temp = array(get('p'), get('s'));
 		
