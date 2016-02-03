@@ -1,4 +1,4 @@
-# PRAF 1.7 (Beta)
+# PRAF 1.8 (Beta)
 Part, Replace And Fulfill Chiper System
 
 ==============================
@@ -24,6 +24,7 @@ CHANGELOG
 - 09/01/2016, 23:09 | Added JSON and  XML output mode, and extra data for the output style: PRAF Version: 1.5 (Beta)
 - 10/01/2016, 19:35 | Created new isolated files for database and database credentials: PRAF Version: 1.6 (Beta)
 - 29/01/2016, 20:25 | "i" parameter now optional, only numeric values greater than 0 allowed; any other value will be treated as "i=0". PRAF Version 1.7 (Beta)
+- 03/02/2016, 20:15 | Obsolete functions removed. Perfomance increased. PRAF Version: 1.8 (Beta)
  
 ==========
 PARAMETERS
