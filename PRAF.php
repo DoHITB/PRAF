@@ -64,7 +64,7 @@ function main(){
 		$save = "false";
 		$bin = "false";
 		
-		if($id === '' || !is_numeric($id) || $id <= 0){
+		if($id === '' || !is_numeric($id) || $id <= 0)
 			$id = '0';
 
 		if($id === '0')
