@@ -42,7 +42,7 @@ function main(){
 			$bin = "true";
 		}
 		
-		$encoded = _go($text, false, $memory);
+		$encoded = _go($text, $memory);
 		
 		if(get('v') === '1'){
 			$id = __store($encoded[1], $encoded[2], 0);
@@ -86,7 +86,7 @@ function main(){
 		}
 
 		$plain = _undo(base64_decode($text), $temp[0], $temp[1]);
-		$encoded = _go($plain, false, $memory);
+		$encoded = _go($plain, $memory);
 		
 		if($id > 0)
 			$id = __store($encoded[1], $encoded[2], $id);
@@ -114,9 +114,7 @@ function main(){
 }
 
 function rnd(){return rand(0, 15);}
-function srnd(){return rand(2, 5);}
 function rnb(){return rand(0, 1);}
-function rndc($x, $y){return true;}
 function getCode($t, $i){
 	$gtemp = dechex(ord(substr($t, $i, 1)));
 	
@@ -129,13 +127,11 @@ function getCode($t, $i){
 }
 
 function getByte($t, $i){return substr($t, $i, 1);}
-function h2d($t){return hexdec($t);}
 function a2b($t, $i){return decbin(ord(substr($t, $i, 1)));}
-function b2h($t){return bin2hex($t);}
 
 function srndc($x, $y){
 	if($x == 7){
-		if(h2d($y) == 15){
+		if(hexdec($y) == 15){
 			return false;
 		}
 	}elseif($x < 2){
@@ -157,7 +153,7 @@ function getPiv($m){
 			for($pj = 0;$pj < 8;$pj++)
 				$ptemp .= rnb();
 			
-			$ptemh = b2h($ptemp);
+			$ptemh = bin2hex($ptemp);
 
 		}while(!srndc(getByte($ptemh, 0), getByte($ptemh, 1)));
 		
@@ -172,9 +168,9 @@ function fulfill($c, $p, $x, $y, $v){
 	$c[$p] = $v[$x];
 	
 	if($p == 0)
-		$c[1] = $v[h2d($y)];
+		$c[1] = $v[hexdec($y)];
 	else
-		$c[0] = $v[h2d($y)];
+		$c[0] = $v[hexdec($y)];
 	
 	return $c;
 }
@@ -235,7 +231,7 @@ function unSort($ur, $pattern){
 	return $ret;
 }
 
-function _go($text, $secure, $memory){
+function _go($text, $memory){
 	$v = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F');
 	$pos = 0;
   	$offset = 0;
@@ -248,13 +244,6 @@ function _go($text, $secure, $memory){
   	$piv = array();
   	$pivi = 0;
   	$limit = $memory - 1;
-  	$rndf = "rnd";
-  	$rncf = "rndc";
-	
-	if($secure){
-		$rndf = "srnd";
-		$rncf = "srndc";
-	}
 	
 	if($memory == 0 || $memory % 8 !== 0)
 		return false;
@@ -279,12 +268,12 @@ function _go($text, $secure, $memory){
 		}
 
 		$sd = getCode($txt, $pos);
-		$sx = $rndf();
+		$sx = rnd();
 		$sy = null;
 		
 		if($sx < 8){
 			if($sx % 2 === 0){
-				$sy = h2d($rndf());
+				$sy = hexdec(rnd());
 			}else{
 				$sy = getByte($sd, $offset);
 				
@@ -333,7 +322,7 @@ function _undo($txt, $bpadding, $pattern){
 		$put = true;
 		$sd = getCode($txt, $ui);
 		$sy = null;
-		$sx = h2d(getByte($sd, $bpadding[$ui]));
+		$sx = hexdec(getByte($sd, $bpadding[$ui]));
 		
 		if($sx < 8)
 			if($sx % 2 == 0)
