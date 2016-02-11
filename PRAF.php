@@ -34,7 +34,7 @@ function main(){
 		$save = "false";
 		$bin = "false";
 		
-		if($m === '')
+		if($memory === '')
 			$memory = 1024;
 		
 		if(get('b') === '1'){
